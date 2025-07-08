@@ -14,9 +14,13 @@ import java.util.StringTokenizer;
  * N : 전체 용액의 수 3~5000
  * 
  * 1. 용액을 정렬한다.
- * 2. 투포인터? 트리플 포인터? 방법을 이용한다.
- * 2.1 l, r, m 포인터 
- * 
+ * 2. 투포인터? 트리플 포인터? 방법을 이용한다.      N-3 N-2 N-1 
+ * 2.1 값 하나(fix)를 고정한다. fix : 0=>N-3   fix  l  r] 
+ * 2.2  l = fix+1, r = N-1 부터 시작  while (l<r)
+ * 2.3  left+ right + fix 값의 절대값 최소 업데이트
+ * 2.3.1 left+right+fix <0 => l++
+ * 2.3.2 left+right+fix >0 => r--
+ * 2.3.3 left+right+fix ==0 => break 
  * 
  */
 class Main{
