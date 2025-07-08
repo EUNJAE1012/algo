@@ -47,11 +47,11 @@ class Main{
 			l = fix + 1;
             r = N - 1;
 			int fixNum = solutions[fix];
-			while(l<r && fix<r) {
+			while(l<r) {
 				int left = solutions[l];
 				int right =solutions[r];
 //				System.out.println(left + " "+ +fixNum+ " "+right);
-				long sum = left+right+fixNum;
+				long sum = (long)left+(long)right+(long)fixNum; //형변환을 넣어주지 않으면 오버플로우
 				if(Math.abs(minSum)>Math.abs(sum)) {
 					int[] temp = {fixNum,left,right};
 					Arrays.sort(temp);
