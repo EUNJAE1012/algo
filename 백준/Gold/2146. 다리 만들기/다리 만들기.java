@@ -1,4 +1,5 @@
 
+
 /*
  * BOJ 2146: 다리만들기
  * 여러섬인 나라가 있다.
@@ -129,7 +130,7 @@ public class Main {
 				}
 				visited[nxtRow][nxtCol]= true;
 				int island2 = nxtRow*size+nxtCol;
-				isSameIsland(island1, island2,true);
+				isSameIsland(island1, island2);
 				queue.add(new int[]{nxtRow, nxtCol});
 			}
 		}
@@ -152,17 +153,13 @@ public class Main {
 		if(parent[idx]==idx) return idx;
 		return parent[idx] = find(parent[idx]);
 	}
-	
-	static int find2(int idx) {
-		if(parent[idx]==idx) return idx;
-		return find(parent[idx]);
-	}
-	static boolean isSameIsland(int a,int b,boolean c) {
+
+	static boolean isSameIsland(int a,int b) {
 //		System.out.println(a+"와"+b+"는 같은섬일까?");
-		int rootA = c? find(a):find2(a);
-		int rootB = c? find(b):find2(b);
+		int rootA =  find(a);
+		int rootB =  find(b);
 		if(rootA==rootB) return true;
-		if(c)parent[rootB] = rootA;
+		parent[rootB] = rootA;
 		
 		
 		return false;
