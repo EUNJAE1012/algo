@@ -95,7 +95,7 @@ public class Main {
 				int island2 = nxtRow*size+nxtCol;
 //				System.out.println(island2+" 섬발견");
 				//다른섬을 찾았나요?
-				if(!isSameIsland(island1, island2,false)) {
+				if(parent[island1]!=parent[island2]) {
 //					System.out.println(island2+"다른섬이다!! 거리"+curDistance);
 					minLength = Math.min(minLength, curDistance);
 					return;
